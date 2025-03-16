@@ -12,14 +12,28 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as ExampleChatImport } from './routes/example.chat'
 import { Route as DemoTanstackQueryImport } from './routes/demo.tanstack-query'
 import { Route as DemoStoreImport } from './routes/demo.store'
+import { Route as ExampleGuitarsIndexImport } from './routes/example.guitars/index'
+import { Route as ExampleGuitarsGuitarIdImport } from './routes/example.guitars/$guitarId'
+import { Route as DemoStartServerFuncsImport } from './routes/demo.start.server-funcs'
+import { Route as DemoStartApiRequestImport } from './routes/demo.start.api-request'
+import { Route as DemoSentryTestingImport } from './routes/demo.sentry.testing'
+import { Route as DemoFormSimpleImport } from './routes/demo.form.simple'
+import { Route as DemoFormAddressImport } from './routes/demo.form.address'
 
 // Create/Update Routes
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ExampleChatRoute = ExampleChatImport.update({
+  id: '/example/chat',
+  path: '/example/chat',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -32,6 +46,48 @@ const DemoTanstackQueryRoute = DemoTanstackQueryImport.update({
 const DemoStoreRoute = DemoStoreImport.update({
   id: '/demo/store',
   path: '/demo/store',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ExampleGuitarsIndexRoute = ExampleGuitarsIndexImport.update({
+  id: '/example/guitars/',
+  path: '/example/guitars/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ExampleGuitarsGuitarIdRoute = ExampleGuitarsGuitarIdImport.update({
+  id: '/example/guitars/$guitarId',
+  path: '/example/guitars/$guitarId',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DemoStartServerFuncsRoute = DemoStartServerFuncsImport.update({
+  id: '/demo/start/server-funcs',
+  path: '/demo/start/server-funcs',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DemoStartApiRequestRoute = DemoStartApiRequestImport.update({
+  id: '/demo/start/api-request',
+  path: '/demo/start/api-request',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DemoSentryTestingRoute = DemoSentryTestingImport.update({
+  id: '/demo/sentry/testing',
+  path: '/demo/sentry/testing',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DemoFormSimpleRoute = DemoFormSimpleImport.update({
+  id: '/demo/form/simple',
+  path: '/demo/form/simple',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DemoFormAddressRoute = DemoFormAddressImport.update({
+  id: '/demo/form/address',
+  path: '/demo/form/address',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -60,6 +116,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoTanstackQueryImport
       parentRoute: typeof rootRoute
     }
+    '/example/chat': {
+      id: '/example/chat'
+      path: '/example/chat'
+      fullPath: '/example/chat'
+      preLoaderRoute: typeof ExampleChatImport
+      parentRoute: typeof rootRoute
+    }
+    '/demo/form/address': {
+      id: '/demo/form/address'
+      path: '/demo/form/address'
+      fullPath: '/demo/form/address'
+      preLoaderRoute: typeof DemoFormAddressImport
+      parentRoute: typeof rootRoute
+    }
+    '/demo/form/simple': {
+      id: '/demo/form/simple'
+      path: '/demo/form/simple'
+      fullPath: '/demo/form/simple'
+      preLoaderRoute: typeof DemoFormSimpleImport
+      parentRoute: typeof rootRoute
+    }
+    '/demo/sentry/testing': {
+      id: '/demo/sentry/testing'
+      path: '/demo/sentry/testing'
+      fullPath: '/demo/sentry/testing'
+      preLoaderRoute: typeof DemoSentryTestingImport
+      parentRoute: typeof rootRoute
+    }
+    '/demo/start/api-request': {
+      id: '/demo/start/api-request'
+      path: '/demo/start/api-request'
+      fullPath: '/demo/start/api-request'
+      preLoaderRoute: typeof DemoStartApiRequestImport
+      parentRoute: typeof rootRoute
+    }
+    '/demo/start/server-funcs': {
+      id: '/demo/start/server-funcs'
+      path: '/demo/start/server-funcs'
+      fullPath: '/demo/start/server-funcs'
+      preLoaderRoute: typeof DemoStartServerFuncsImport
+      parentRoute: typeof rootRoute
+    }
+    '/example/guitars/$guitarId': {
+      id: '/example/guitars/$guitarId'
+      path: '/example/guitars/$guitarId'
+      fullPath: '/example/guitars/$guitarId'
+      preLoaderRoute: typeof ExampleGuitarsGuitarIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/example/guitars/': {
+      id: '/example/guitars/'
+      path: '/example/guitars'
+      fullPath: '/example/guitars'
+      preLoaderRoute: typeof ExampleGuitarsIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -69,12 +181,28 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/demo/store': typeof DemoStoreRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/example/chat': typeof ExampleChatRoute
+  '/demo/form/address': typeof DemoFormAddressRoute
+  '/demo/form/simple': typeof DemoFormSimpleRoute
+  '/demo/sentry/testing': typeof DemoSentryTestingRoute
+  '/demo/start/api-request': typeof DemoStartApiRequestRoute
+  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
+  '/example/guitars': typeof ExampleGuitarsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/demo/store': typeof DemoStoreRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/example/chat': typeof ExampleChatRoute
+  '/demo/form/address': typeof DemoFormAddressRoute
+  '/demo/form/simple': typeof DemoFormSimpleRoute
+  '/demo/sentry/testing': typeof DemoSentryTestingRoute
+  '/demo/start/api-request': typeof DemoStartApiRequestRoute
+  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
+  '/example/guitars': typeof ExampleGuitarsIndexRoute
 }
 
 export interface FileRoutesById {
@@ -82,14 +210,56 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/demo/store': typeof DemoStoreRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/example/chat': typeof ExampleChatRoute
+  '/demo/form/address': typeof DemoFormAddressRoute
+  '/demo/form/simple': typeof DemoFormSimpleRoute
+  '/demo/sentry/testing': typeof DemoSentryTestingRoute
+  '/demo/start/api-request': typeof DemoStartApiRequestRoute
+  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
+  '/example/guitars/': typeof ExampleGuitarsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/demo/store' | '/demo/tanstack-query'
+  fullPaths:
+    | '/'
+    | '/demo/store'
+    | '/demo/tanstack-query'
+    | '/example/chat'
+    | '/demo/form/address'
+    | '/demo/form/simple'
+    | '/demo/sentry/testing'
+    | '/demo/start/api-request'
+    | '/demo/start/server-funcs'
+    | '/example/guitars/$guitarId'
+    | '/example/guitars'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/demo/store' | '/demo/tanstack-query'
-  id: '__root__' | '/' | '/demo/store' | '/demo/tanstack-query'
+  to:
+    | '/'
+    | '/demo/store'
+    | '/demo/tanstack-query'
+    | '/example/chat'
+    | '/demo/form/address'
+    | '/demo/form/simple'
+    | '/demo/sentry/testing'
+    | '/demo/start/api-request'
+    | '/demo/start/server-funcs'
+    | '/example/guitars/$guitarId'
+    | '/example/guitars'
+  id:
+    | '__root__'
+    | '/'
+    | '/demo/store'
+    | '/demo/tanstack-query'
+    | '/example/chat'
+    | '/demo/form/address'
+    | '/demo/form/simple'
+    | '/demo/sentry/testing'
+    | '/demo/start/api-request'
+    | '/demo/start/server-funcs'
+    | '/example/guitars/$guitarId'
+    | '/example/guitars/'
   fileRoutesById: FileRoutesById
 }
 
@@ -97,12 +267,28 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DemoStoreRoute: typeof DemoStoreRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
+  ExampleChatRoute: typeof ExampleChatRoute
+  DemoFormAddressRoute: typeof DemoFormAddressRoute
+  DemoFormSimpleRoute: typeof DemoFormSimpleRoute
+  DemoSentryTestingRoute: typeof DemoSentryTestingRoute
+  DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
+  DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
+  ExampleGuitarsGuitarIdRoute: typeof ExampleGuitarsGuitarIdRoute
+  ExampleGuitarsIndexRoute: typeof ExampleGuitarsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DemoStoreRoute: DemoStoreRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
+  ExampleChatRoute: ExampleChatRoute,
+  DemoFormAddressRoute: DemoFormAddressRoute,
+  DemoFormSimpleRoute: DemoFormSimpleRoute,
+  DemoSentryTestingRoute: DemoSentryTestingRoute,
+  DemoStartApiRequestRoute: DemoStartApiRequestRoute,
+  DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
+  ExampleGuitarsGuitarIdRoute: ExampleGuitarsGuitarIdRoute,
+  ExampleGuitarsIndexRoute: ExampleGuitarsIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -117,7 +303,15 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/demo/store",
-        "/demo/tanstack-query"
+        "/demo/tanstack-query",
+        "/example/chat",
+        "/demo/form/address",
+        "/demo/form/simple",
+        "/demo/sentry/testing",
+        "/demo/start/api-request",
+        "/demo/start/server-funcs",
+        "/example/guitars/$guitarId",
+        "/example/guitars/"
       ]
     },
     "/": {
@@ -128,6 +322,30 @@ export const routeTree = rootRoute
     },
     "/demo/tanstack-query": {
       "filePath": "demo.tanstack-query.tsx"
+    },
+    "/example/chat": {
+      "filePath": "example.chat.tsx"
+    },
+    "/demo/form/address": {
+      "filePath": "demo.form.address.tsx"
+    },
+    "/demo/form/simple": {
+      "filePath": "demo.form.simple.tsx"
+    },
+    "/demo/sentry/testing": {
+      "filePath": "demo.sentry.testing.tsx"
+    },
+    "/demo/start/api-request": {
+      "filePath": "demo.start.api-request.tsx"
+    },
+    "/demo/start/server-funcs": {
+      "filePath": "demo.start.server-funcs.tsx"
+    },
+    "/example/guitars/$guitarId": {
+      "filePath": "example.guitars/$guitarId.tsx"
+    },
+    "/example/guitars/": {
+      "filePath": "example.guitars/index.tsx"
     }
   }
 }
