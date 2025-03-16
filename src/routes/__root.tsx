@@ -8,6 +8,8 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import Header from "../components/Header";
 
+import ClerkProvider from "../integrations/clerk/provider";
+
 import TanstackQueryLayout from "../integrations/tanstack-query/layout";
 
 import appCss from "../styles.css?url";
@@ -41,12 +43,14 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 
 	component: () => (
 		<RootDocument>
-			<Header />
+			<ClerkProvider>
+				<Header />
 
-			<Outlet />
-			<TanStackRouterDevtools />
+				<Outlet />
+				<TanStackRouterDevtools />
 
-			<TanstackQueryLayout />
+				<TanstackQueryLayout />
+			</ClerkProvider>
 		</RootDocument>
 	),
 });

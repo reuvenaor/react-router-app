@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
+import ClerkHeader from "../integrations/clerk/header-user";
+
 import TanchatHeader from "../integrations/tanchat/header-user";
 
 export default function Header() {
@@ -11,11 +13,7 @@ export default function Header() {
 				</div>
 
 				<div className="px-2 font-bold">
-					<Link to="/demo/form/simple">Simple Form</Link>
-				</div>
-
-				<div className="px-2 font-bold">
-					<Link to="/demo/form/address">Address Form</Link>
+					<Link to="/demo/clerk">Clerk</Link>
 				</div>
 
 				<div className="px-2 font-bold">
@@ -48,6 +46,8 @@ export default function Header() {
 			</nav>
 
 			<div>
+				<ClerkHeader />
+
 				<TanchatHeader />
 			</div>
 		</header>

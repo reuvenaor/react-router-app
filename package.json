@@ -21,7 +21,6 @@
     "@sentry/react": "^9.1.0",
     "@tailwindcss/postcss": "^4.0.7",
     "@tailwindcss/vite": "^4.0.6",
-    "@tanstack/react-form": "^1.0.0",
     "@tanstack/react-query": "^5.66.5",
     "@tanstack/react-query-devtools": "^5.66.5",
     "@tanstack/react-router": "^1.114.3",
@@ -48,8 +47,7 @@
     "tailwindcss": "^4.0.6",
     "tailwindcss-animate": "^1.0.7",
     "vinxi": "^0.5.3",
-    "vite-tsconfig-paths": "^5.1.4",
-    "zod": "^3.24.2"
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -63,14 +61,5 @@
     "vite": "^6.1.0",
     "vitest": "^3.0.5",
     "web-vitals": "^4.2.4"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@biomejs/biome",
-      "@clerk/shared",
-      "@parcel/watcher",
-      "@sentry-internal/node-cpu-profiler",
-      "esbuild"
-    ]
   }
 }
